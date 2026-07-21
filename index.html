@@ -48,6 +48,8 @@
     .hm-about-section { flex-direction: column !important; }
     .hm-about-img { width: 100% !important; height: 200px !important; }
     .hm-gallery-grid { grid-template-columns: repeat(2,1fr) !important; max-width: 100% !important; gap: 12px 10px !important; }
+    .hm-gallery-frame { flex-direction: column !important; }
+    .hm-gallery-img { width: 100% !important; height: 260px !important; }
   }
   @media (max-width: 480px) {
     .hm-gallery-grid { grid-template-columns: repeat(2,1fr) !important; }
@@ -192,22 +194,141 @@
     </div>
   </section>
 
-  <section data-frame="gallery" style="{{ galleryFrameStyle }}background:#FAF9F6;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:clamp(24px,4vh,40px) 20px;">
+  <section data-frame="gallery1" class="hm-gallery-frame" style="{{ gallery1FrameStyle }}background:#FAF9F6;display:flex;">
     <div style="position:absolute;inset:0;background:linear-gradient(125deg, transparent 40%, rgba(255,255,255,0.5) 49%, rgba(255,255,255,0.08) 55%, transparent 64%);mix-blend-mode:overlay;pointer-events:none;z-index:5;"></div>
-    <div style="font-family:'Libre Caslon Text',serif;font-style:italic;font-size:14px;letter-spacing:2px;color:#E8341C;text-transform:uppercase;margin-bottom:6px;">— Photo Essay —</div>
-    <div style="font-family:'Newsreader',serif;font-weight:800;font-size:clamp(30px,5.2vw,56px);color:#1A0A05;margin-bottom:22px;overflow:hidden;white-space:nowrap;display:inline-block;max-width:max-content;width:{{ galleryTitleW }};transition:width 1.2s steps(14,end);">The Gallery</div>
-    <div class="hm-gallery-grid" style="display:grid;grid-template-columns:repeat(3,minmax(150px,220px));gap:18px 22px;max-width:900px;">
-      <sc-for list="{{ galleryPhotos }}" as="photo" hint-placeholder-count="6">
-        <div style="background:#fff;padding:8px 8px 22px 8px;border:1px solid rgba(26,10,5,0.12);box-shadow:0 8px 24px rgba(0,0,0,0.08);position:relative;">
-          <div style="width:100%;aspect-ratio:1/1;overflow:hidden;">
-            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ photo.id }}" shape="rect" placeholder="Drop gallery photo" src="{{ photo.src }}" style="width:100%;height:100%;"></x-import>
-          </div>
-          <div style="position:absolute;bottom:4px;left:0;right:0;text-align:center;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:11px;color:#1A0A05;letter-spacing:1px;">{{ photo.caption }}</div>
-        </div>
-      </sc-for>
+    <div class="hm-gallery-img" style="width:55%;position:relative;flex-shrink:0;">
+      <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="hm-gallery-1" shape="rect" placeholder="Drop gallery photo" src="ph1.png" style="width:100%;height:100%;"></x-import>
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:16px 20px;background:linear-gradient(0deg,rgba(0,0,0,0.6),transparent);z-index:2;pointer-events:none;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:11px;letter-spacing:2.5px;color:#FF9A4D;">EXHIBIT A</div>
+      </div>
+    </div>
+    <div style="flex:1;padding:clamp(28px,5vh,56px) clamp(20px,4vw,44px);display:flex;flex-direction:column;justify-content:center;min-width:0;overflow:hidden;">
+      <div style="font-family:'Libre Caslon Text',serif;font-style:italic;font-size:13px;letter-spacing:2px;color:#E8341C;text-transform:uppercase;margin-bottom:8px;">— Centerfold —</div>
+      <div style="font-family:'Newsreader',serif;font-weight:800;font-size:clamp(26px,4.2vw,46px);line-height:1.05;color:#1A0A05;margin-bottom:16px;">Born From<br>The Meme</div>
+      <div style="font-family:'Libre Caslon Text',serif;font-style:italic;font-size:clamp(15px,1.8vh,18px);color:#1A0A05;border-left:3px solid #E8341C;padding-left:14px;margin-bottom:16px;line-height:1.55;">"She didn't have a whitepaper. She had a wallet and absolutely no chill."</div>
+      <div style="font-size:clamp(13px,1.5vh,14px);line-height:1.75;color:#1A0A05;opacity:0.8;max-width:400px;">
+        <p style="margin:0 0 10px 0;">Some say she was minted at 3am on a Tuesday. Others claim she materialized the moment someone typed <em>wen moon</em> into the void and got a contract address back.</p>
+        <p style="margin:0;">What the charts confirm: she came, she pumped, she made paper hands weep. And she is nowhere near done.</p>
+      </div>
+      <div style="margin-top:20px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:11px;letter-spacing:1px;color:#E8341C;text-transform:uppercase;border-top:1px solid rgba(232,52,28,0.25);padding-top:14px;">Interests: Going Parabolic · Turn-ons: Whale Buys · Turn-offs: Stop-Losses</div>
     </div>
     <div style="position:absolute;bottom:14px;left:0;right:0;display:flex;justify-content:space-between;padding:0 32px;font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:1.5px;color:#1A0A05;opacity:0.45;z-index:6;">
       <span>HOTMEME MAGAZINE</span><span>PAGE 04</span>
+    </div>
+  </section>
+
+  <section data-frame="gallery2" class="hm-gallery-frame" style="{{ gallery2FrameStyle }}background:#FAF9F6;display:flex;">
+    <div style="position:absolute;inset:0;background:linear-gradient(125deg, transparent 40%, rgba(255,255,255,0.5) 49%, rgba(255,255,255,0.08) 55%, transparent 64%);mix-blend-mode:overlay;pointer-events:none;z-index:5;"></div>
+    <div style="flex:1;padding:clamp(28px,5vh,56px) clamp(20px,4vw,44px);display:flex;flex-direction:column;justify-content:center;min-width:0;overflow:hidden;">
+      <div style="font-family:'Libre Caslon Text',serif;font-style:italic;font-size:13px;letter-spacing:2px;color:#E8341C;text-transform:uppercase;margin-bottom:8px;">— Centerfold —</div>
+      <div style="font-family:'Newsreader',serif;font-weight:800;font-size:clamp(26px,4.2vw,46px);line-height:1.05;color:#1A0A05;margin-bottom:16px;">Never<br>Selling</div>
+      <div style="font-family:'Libre Caslon Text',serif;font-style:italic;font-size:clamp(15px,1.8vh,18px);color:#1A0A05;border-left:3px solid #E8341C;padding-left:14px;margin-bottom:16px;line-height:1.55;">"My portfolio therapist told me to diversify. So I bought more."</div>
+      <div style="font-size:clamp(13px,1.5vh,14px);line-height:1.75;color:#1A0A05;opacity:0.8;max-width:400px;">
+        <p style="margin:0 0 10px 0;">She's seen red days. She's survived liquidation cascades and fourteen consecutive hours of a chart doing its best broken-escalator impression.</p>
+        <p style="margin:0;">She held. She always holds. Because real degens don't sell at a loss — they screenshot it and post it as proof they were early.</p>
+      </div>
+      <div style="margin-top:20px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:11px;letter-spacing:1px;color:#E8341C;text-transform:uppercase;border-top:1px solid rgba(232,52,28,0.25);padding-top:14px;">Interests: HODLing · Turn-ons: Support Levels · Turn-offs: Profit-Taking</div>
+    </div>
+    <div class="hm-gallery-img" style="width:55%;position:relative;flex-shrink:0;">
+      <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="hm-gallery-2" shape="rect" placeholder="Drop gallery photo" src="ph2.png" style="width:100%;height:100%;"></x-import>
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:16px 20px;background:linear-gradient(0deg,rgba(0,0,0,0.6),transparent);z-index:2;pointer-events:none;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:11px;letter-spacing:2.5px;color:#FF9A4D;">EXHIBIT B</div>
+      </div>
+    </div>
+    <div style="position:absolute;bottom:14px;left:0;right:0;display:flex;justify-content:space-between;padding:0 32px;font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:1.5px;color:#1A0A05;opacity:0.45;z-index:6;">
+      <span>HOTMEME MAGAZINE</span><span>PAGE 05</span>
+    </div>
+  </section>
+
+  <section data-frame="gallery3" class="hm-gallery-frame" style="{{ gallery3FrameStyle }}background:#FAF9F6;display:flex;">
+    <div style="position:absolute;inset:0;background:linear-gradient(125deg, transparent 40%, rgba(255,255,255,0.5) 49%, rgba(255,255,255,0.08) 55%, transparent 64%);mix-blend-mode:overlay;pointer-events:none;z-index:5;"></div>
+    <div class="hm-gallery-img" style="width:55%;position:relative;flex-shrink:0;">
+      <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="hm-gallery-3" shape="rect" placeholder="Drop gallery photo" src="ph3.png" style="width:100%;height:100%;"></x-import>
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:16px 20px;background:linear-gradient(0deg,rgba(0,0,0,0.6),transparent);z-index:2;pointer-events:none;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:11px;letter-spacing:2.5px;color:#FF9A4D;">EXHIBIT C</div>
+      </div>
+    </div>
+    <div style="flex:1;padding:clamp(28px,5vh,56px) clamp(20px,4vw,44px);display:flex;flex-direction:column;justify-content:center;min-width:0;overflow:hidden;">
+      <div style="font-family:'Libre Caslon Text',serif;font-style:italic;font-size:13px;letter-spacing:2px;color:#E8341C;text-transform:uppercase;margin-bottom:8px;">— Centerfold —</div>
+      <div style="font-family:'Newsreader',serif;font-weight:800;font-size:clamp(26px,4.2vw,46px);line-height:1.05;color:#1A0A05;margin-bottom:16px;">No Sleep<br>Mode</div>
+      <div style="font-family:'Libre Caslon Text',serif;font-style:italic;font-size:clamp(15px,1.8vh,18px);color:#1A0A05;border-left:3px solid #E8341C;padding-left:14px;margin-bottom:16px;line-height:1.55;">"Sleep is for people who didn't get in at 0.000001."</div>
+      <div style="font-size:clamp(13px,1.5vh,14px);line-height:1.75;color:#1A0A05;opacity:0.8;max-width:400px;">
+        <p style="margin:0 0 10px 0;">It starts with one refresh of DexScreener. Then another. Then it's 4:17am, the volume just spiked, and you're texting the group chat in all caps.</p>
+        <p style="margin:0;">There is no casual in this game. Only the chart, the candles, and the beautiful chaos of a 300% move at midnight.</p>
+      </div>
+      <div style="margin-top:20px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:11px;letter-spacing:1px;color:#E8341C;text-transform:uppercase;border-top:1px solid rgba(232,52,28,0.25);padding-top:14px;">Interests: Refreshing DEX · Turn-ons: Volume Spikes at 3AM · Turn-offs: Alarm Clocks</div>
+    </div>
+    <div style="position:absolute;bottom:14px;left:0;right:0;display:flex;justify-content:space-between;padding:0 32px;font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:1.5px;color:#1A0A05;opacity:0.45;z-index:6;">
+      <span>HOTMEME MAGAZINE</span><span>PAGE 06</span>
+    </div>
+  </section>
+
+  <section data-frame="gallery4" class="hm-gallery-frame" style="{{ gallery4FrameStyle }}background:#FAF9F6;display:flex;">
+    <div style="position:absolute;inset:0;background:linear-gradient(125deg, transparent 40%, rgba(255,255,255,0.5) 49%, rgba(255,255,255,0.08) 55%, transparent 64%);mix-blend-mode:overlay;pointer-events:none;z-index:5;"></div>
+    <div style="flex:1;padding:clamp(28px,5vh,56px) clamp(20px,4vw,44px);display:flex;flex-direction:column;justify-content:center;min-width:0;overflow:hidden;">
+      <div style="font-family:'Libre Caslon Text',serif;font-style:italic;font-size:13px;letter-spacing:2px;color:#E8341C;text-transform:uppercase;margin-bottom:8px;">— Centerfold —</div>
+      <div style="font-family:'Newsreader',serif;font-weight:800;font-size:clamp(26px,4.2vw,46px);line-height:1.05;color:#1A0A05;margin-bottom:16px;">She Reads<br>The Candles</div>
+      <div style="font-family:'Libre Caslon Text',serif;font-style:italic;font-size:clamp(15px,1.8vh,18px);color:#1A0A05;border-left:3px solid #E8341C;padding-left:14px;margin-bottom:16px;line-height:1.55;">"The RSI was oversold. My conviction was not."</div>
+      <div style="font-size:clamp(13px,1.5vh,14px);line-height:1.75;color:#1A0A05;opacity:0.8;max-width:400px;">
+        <p style="margin:0 0 10px 0;">Where others see noise, she sees signal. Where others see a red candle, she sees an entry. She doesn't read charts — she has conversations with them.</p>
+        <p style="margin:0;">The technicals said wait. The fundamentals said there are no fundamentals. She bought anyway. The chart agreed.</p>
+      </div>
+      <div style="margin-top:20px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:11px;letter-spacing:1px;color:#E8341C;text-transform:uppercase;border-top:1px solid rgba(232,52,28,0.25);padding-top:14px;">Interests: Bull Flags · Turn-ons: Golden Cross · Turn-offs: Bear Divergence</div>
+    </div>
+    <div class="hm-gallery-img" style="width:55%;position:relative;flex-shrink:0;">
+      <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="hm-gallery-4" shape="rect" placeholder="Drop gallery photo" src="ph4.png" style="width:100%;height:100%;"></x-import>
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:16px 20px;background:linear-gradient(0deg,rgba(0,0,0,0.6),transparent);z-index:2;pointer-events:none;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:11px;letter-spacing:2.5px;color:#FF9A4D;">EXHIBIT D</div>
+      </div>
+    </div>
+    <div style="position:absolute;bottom:14px;left:0;right:0;display:flex;justify-content:space-between;padding:0 32px;font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:1.5px;color:#1A0A05;opacity:0.45;z-index:6;">
+      <span>HOTMEME MAGAZINE</span><span>PAGE 07</span>
+    </div>
+  </section>
+
+  <section data-frame="gallery5" class="hm-gallery-frame" style="{{ gallery5FrameStyle }}background:#FAF9F6;display:flex;">
+    <div style="position:absolute;inset:0;background:linear-gradient(125deg, transparent 40%, rgba(255,255,255,0.5) 49%, rgba(255,255,255,0.08) 55%, transparent 64%);mix-blend-mode:overlay;pointer-events:none;z-index:5;"></div>
+    <div class="hm-gallery-img" style="width:55%;position:relative;flex-shrink:0;">
+      <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="hm-gallery-5" shape="rect" placeholder="Drop gallery photo" src="ph5.png" style="width:100%;height:100%;"></x-import>
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:16px 20px;background:linear-gradient(0deg,rgba(0,0,0,0.6),transparent);z-index:2;pointer-events:none;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:11px;letter-spacing:2.5px;color:#FF9A4D;">EXHIBIT E</div>
+      </div>
+    </div>
+    <div style="flex:1;padding:clamp(28px,5vh,56px) clamp(20px,4vw,44px);display:flex;flex-direction:column;justify-content:center;min-width:0;overflow:hidden;">
+      <div style="font-family:'Libre Caslon Text',serif;font-style:italic;font-size:13px;letter-spacing:2px;color:#E8341C;text-transform:uppercase;margin-bottom:8px;">— Centerfold —</div>
+      <div style="font-family:'Newsreader',serif;font-weight:800;font-size:clamp(26px,4.2vw,46px);line-height:1.05;color:#1A0A05;margin-bottom:16px;">Community<br>Is The Alpha</div>
+      <div style="font-family:'Libre Caslon Text',serif;font-style:italic;font-size:clamp(15px,1.8vh,18px);color:#1A0A05;border-left:3px solid #E8341C;padding-left:14px;margin-bottom:16px;line-height:1.55;">"They said it was just a meme. We said: exactly."</div>
+      <div style="font-size:clamp(13px,1.5vh,14px);line-height:1.75;color:#1A0A05;opacity:0.8;max-width:400px;">
+        <p style="margin:0 0 10px 0;">Every legendary coin started as a joke. Every millionaire on this chain started as a degen in a Discord server at 2am asking if this was the one.</p>
+        <p style="margin:0;">The difference between a meme and a movement is twenty thousand wallets and one viral tweet. This is what early looks like.</p>
+      </div>
+      <div style="margin-top:20px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:11px;letter-spacing:1px;color:#E8341C;text-transform:uppercase;border-top:1px solid rgba(232,52,28,0.25);padding-top:14px;">Interests: Discord Raids · Turn-ons: Viral Tweets · Turn-offs: FUD Accounts</div>
+    </div>
+    <div style="position:absolute;bottom:14px;left:0;right:0;display:flex;justify-content:space-between;padding:0 32px;font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:1.5px;color:#1A0A05;opacity:0.45;z-index:6;">
+      <span>HOTMEME MAGAZINE</span><span>PAGE 08</span>
+    </div>
+  </section>
+
+  <section data-frame="gallery6" class="hm-gallery-frame" style="{{ gallery6FrameStyle }}background:#FAF9F6;display:flex;">
+    <div style="position:absolute;inset:0;background:linear-gradient(125deg, transparent 40%, rgba(255,255,255,0.5) 49%, rgba(255,255,255,0.08) 55%, transparent 64%);mix-blend-mode:overlay;pointer-events:none;z-index:5;"></div>
+    <div style="flex:1;padding:clamp(28px,5vh,56px) clamp(20px,4vw,44px);display:flex;flex-direction:column;justify-content:center;min-width:0;overflow:hidden;">
+      <div style="font-family:'Libre Caslon Text',serif;font-style:italic;font-size:13px;letter-spacing:2px;color:#E8341C;text-transform:uppercase;margin-bottom:8px;">— Centerfold —</div>
+      <div style="font-family:'Newsreader',serif;font-weight:800;font-size:clamp(26px,4.2vw,46px);line-height:1.05;color:#1A0A05;margin-bottom:16px;">To The Moon.<br>No Seatbelts.</div>
+      <div style="font-family:'Libre Caslon Text',serif;font-style:italic;font-size:clamp(15px,1.8vh,18px);color:#1A0A05;border-left:3px solid #E8341C;padding-left:14px;margin-bottom:16px;line-height:1.55;">"This isn't financial advice. This is a lifestyle choice."</div>
+      <div style="font-size:clamp(13px,1.5vh,14px);line-height:1.75;color:#1A0A05;opacity:0.8;max-width:400px;">
+        <p style="margin:0 0 10px 0;">The portfolio is up. The hands are diamond. The group chat is on fire. Somewhere, a financial advisor is deeply concerned. Somewhere else, a degen just screenshotted the PnL and posted it with zero context.</p>
+        <p style="margin:0;">This is the endgame. HOTMEME isn't just a coin — it's a personality trait you didn't know you had until the chart went vertical.</p>
+      </div>
+      <div style="margin-top:20px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:11px;letter-spacing:1px;color:#E8341C;text-transform:uppercase;border-top:1px solid rgba(232,52,28,0.25);padding-top:14px;">Interests: All-Time Highs · Turn-ons: New Wallets · Turn-offs: Reality Checks</div>
+    </div>
+    <div class="hm-gallery-img" style="width:55%;position:relative;flex-shrink:0;">
+      <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="hm-gallery-6" shape="rect" placeholder="Drop gallery photo" src="ph6.png" style="width:100%;height:100%;"></x-import>
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:16px 20px;background:linear-gradient(0deg,rgba(0,0,0,0.6),transparent);z-index:2;pointer-events:none;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:11px;letter-spacing:2.5px;color:#FF9A4D;">EXHIBIT F</div>
+      </div>
+    </div>
+    <div style="position:absolute;bottom:14px;left:0;right:0;display:flex;justify-content:space-between;padding:0 32px;font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:1.5px;color:#1A0A05;opacity:0.45;z-index:6;">
+      <span>HOTMEME MAGAZINE</span><span>PAGE 09</span>
     </div>
   </section>
 
@@ -217,7 +338,7 @@
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1280, &quot;height&quot;: 800}, &quot;ca&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;HMEMExxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Links&quot;}, &quot;buyLink&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;#&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Links&quot;}, &quot;xLink&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;#&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Links&quot;}, &quot;dexLink&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;#&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Links&quot;}, &quot;telegramLink&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;#&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Links&quot;}}">
 class Component extends DCLogic {
   containerRef = React.createRef();
-  frameOrder = ['hero', 'howtobuy', 'about', 'gallery'];
+  frameOrder = ['hero', 'howtobuy', 'about', 'gallery1', 'gallery2', 'gallery3', 'gallery4', 'gallery5', 'gallery6'];
   state = { visible: { hero: true }, copied: false, current: 0, flipIndex: null, flipDir: null };
 
   componentDidMount() {
@@ -432,13 +553,6 @@ class Component extends DCLogic {
       { n: 4, rot: 2, title: 'VERIFY THE CA', body: 'Always paste the official contract address. Fakes are everywhere.' },
     ];
 
-    const galleryPhotos = [1, 2, 3, 4, 5, 6].map((n) => ({
-      id: `hm-gallery-${n}`,
-      rot: n % 2 === 0 ? 2 : -2,
-      caption: `EXHIBIT ${String.fromCharCode(64 + n)}`,
-      src: `ph${n}.png`,
-    }));
-
     return {
       containerRef: this.containerRef,
       copyCA: this.copyCA,
@@ -451,11 +565,15 @@ class Component extends DCLogic {
       telegramLink: this.props.telegramLink || '#',
       navDots,
       steps,
-      galleryPhotos,
       heroFrameStyle: this.frameStyle(0),
       buyFrameStyle: this.frameStyle(1),
       aboutFrameStyle: this.frameStyle(2),
-      galleryFrameStyle: this.frameStyle(3),
+      gallery1FrameStyle: this.frameStyle(3),
+      gallery2FrameStyle: this.frameStyle(4),
+      gallery3FrameStyle: this.frameStyle(5),
+      gallery4FrameStyle: this.frameStyle(6),
+      gallery5FrameStyle: this.frameStyle(7),
+      gallery6FrameStyle: this.frameStyle(8),
       flipShadowStyle: this.flipShadowStyle(),
       issueDate: 'JULY 2026',
       barcodeBars: [2,1,3,1,2,2,1,3,1,2,1,3,2,1,2,3,1,2].map((w) => ({ w })),
@@ -468,7 +586,6 @@ class Component extends DCLogic {
       heroTagW: v.hero ? '100%' : '0%',
       buyTitleW: v.howtobuy ? '100%' : '0%',
       aboutTitleW: v.about ? '100%' : '0%',
-      galleryTitleW: v.gallery ? '100%' : '0%',
     };
   }
 }
